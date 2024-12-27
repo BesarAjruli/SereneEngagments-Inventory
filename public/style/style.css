@@ -1,0 +1,56 @@
+table, thead, tr, td, th{
+border: 1px solid #000;
+border-spacing: 0;
+}
+td img{
+    height: 100px;
+    width: auto;
+}
+thead{
+    height: 30px;
+}
+td{
+text-align: center;
+padding: 10px;
+}
+main{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    place-items: center;
+    flex-direction: column;
+}
+.logoContainer{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    place-items: center;
+}
+#search{
+    margin-bottom: 30px;
+    border: 0;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #eee;
+}
+button{
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+    background-color: #d8d8d8;
+    border: 0;
+    border-radius: 15px;
+}
+
+form{
+    text-align: center;
+}
+form > input {
+    margin-bottom: 30px;
+    border: 0;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #eee;
+}

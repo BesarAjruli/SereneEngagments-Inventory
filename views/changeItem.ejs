@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" href="../images/logo.jpg">
+
+</head>
+<body>
+    <div class="logoContainer">
+        <img src="../images/logo.jpg" alt="logo">
+    </div>
+    <main>
+          <% data.forEach(inventory => { %>
+            <h3>Change this item: <%= inventory.name %></h3>
+            <h4>Id: <span><%= inventory.id %></span></h4>
+        <img src="data:image/jpeg;base64,<%= inventory.image.toString('base64') %>" alt="Item Image" style="height: 200px;">
+        <div style="display: flex; gap: 50px;margin-top: 30px;">
+            <button id="edit">Edit</button>
+            <button id="delete">Delete</button>
+        </div>
+   <% }) %>
+    </main>
+  
+    <script type="module">
+        const edit = document.getElementById('edit')
+        const del = document.getElementById('delete')
+
+        const id = document.querySelector('span').textContent
+
+        console.log(id)
+
+        del.addEventListener('click', () => {
+            location.href = `/delete/${id}`
+        })
+        edit.addEventListener('click', () => {
+            location.href = `/edit/${id}`
+        })
+    </script>
+</body>
+</html>

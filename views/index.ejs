@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" href="../images/logo.jpg">
+</head>
+<body>
+    <div class="logoContainer">
+        <img src="../images/logo.jpg" alt="logo">
+    </div>
+    <main>
+            <form id="searchForm" action="/search" method="post">
+                <input type="text" name="search" id="search" placeholder="Search..." oninput="submitFormOnEnter(event)">
+            </form>
+
+            <svg style="height: 40px; width: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" onclick="location.href = '/new'"></path> ></path>{} /></svg>
+        
+        <table>
+            <!--Columns(head)-->
+            <thead>
+                <th>
+                    Image
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                    Qty.
+                </th>
+                <th>
+                    Price (Den)
+                </th>
+            </thead>
+            <tbody>
+                <% data.forEach(inventory => {%>
+                    <tr onclick="chanegItem('<%= inventory.id %>')">
+                    <td>
+                        <img src="data:image/jpeg;base64,<%= inventory.image.toString('base64') %>" alt="Item Image">
+                    </td>
+                    <td><%= inventory.name %></td>
+                    <td><%= inventory.quantity %></td>
+                    <td><%= inventory.price %></td>
+                </tr>
+                <%}) %>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function submitFormOnEnter(event) {
+            if (event.key === "Enter") {  // Detect "Enter" key press
+                document.getElementById("searchForm").submit();
+            }
+        }
+
+        function chanegItem(event){
+            window.location.href = `/change/${event}`
+        }
+    </script>
+</body>
+</html>
