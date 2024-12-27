@@ -3,10 +3,6 @@ const {Pool} = require('pg')
 
 
 module.exports = new Pool({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    database: process.env.DATABASE_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DATABASE_PORT,
+    connectionString: 'postgres://koyeb-adm:ksD4J3VRdwpC@ep-empty-hat-a22x2nts.eu-central-1.pg.koyeb.app/koyebdb',
     ssl: {rejectUnauthorized: false}
 })
