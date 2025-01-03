@@ -3,10 +3,7 @@ const {Pool} = require('pg')
 
 
 module.exports = new Pool({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    database: process.env.DATABASE_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DATABASE_PORT,
+    connectionString: process.env.DATABASE_URL,
+    keepAlive: true,
     ssl: {rejectUnauthorized: false}
 })
